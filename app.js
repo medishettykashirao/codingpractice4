@@ -49,10 +49,9 @@ app.post('/players/', async (request, response) => {
         cricket_team (player_name,jersey_number,role)
         VALUES
         (
-            '${playerName}'',
-            '${jerseyNumber},
-            '${role}'
-            );`
+            '${playerName}',
+            ${jerseyNumber},
+            '${role}');`
   const db3 = await db.run(api2)
 
   response.send('Player Added to Team')
@@ -83,7 +82,7 @@ app.put('/players/:playerId/', async (request, response) => {
             jersey_number = '${jerseyNumber}',
             role = '${role}'
         WHERE
-            player_id=${playerId}`
+            player_id=${playerId};`
 
   await db.run(api4)
   response.send('Player Details Updated')
